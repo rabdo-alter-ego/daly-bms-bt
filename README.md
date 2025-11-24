@@ -12,6 +12,19 @@ Modify the script executor.py (or parallel_executor.py if you have more than 1 d
     or
     python3 parallel_executor.py
 
+
+<img width="720" height="1280" alt="immagine" src="https://github.com/user-attachments/assets/af4db66a-b6d3-419c-bbb0-8a39aaf06287" />
+
+# Hardware
+In order to use the script you need a device like mine in the photo, i have 3 of them and i can provide more information about them if needed: 
+- 16s
+- 200A charge
+- 200A discharge
+- internal passive balancer
+- parallel support (dio port)
+- dual uart port (1 and 2)
+- dual ntc port (A and B)
+
 # data extracted
 I successfully extracted most of the live data I was able to see in the app (who cares about for example SN number if it doesn t change at all?)
 - rated_capacity_Ah (max batteries capacity)
@@ -35,18 +48,6 @@ I successfully extracted most of the live data I was able to see in the app (who
 I was still not able to extract some live data and I really like to have it extracted in my script:
 - MOS_temperature_C
 - All alarm messages except for SOC Too Low (Stage 1) and SOC Too Low (Stage 2)
-
-<img width="720" height="1280" alt="immagine" src="https://github.com/user-attachments/assets/af4db66a-b6d3-419c-bbb0-8a39aaf06287" />
-# Hardware
-In order to use the script you need a device like mine in the photo, i have 3 of them and i can provide more information about them if needed: 
-- 16s
-- 200A charge
-- 200A discharge
-- internal passive balancer
-- parallel support (dio port)
-- dual uart port (1 and 2)
-- dual ntc port (A and B)
-
 
 # Motivation
 I have a solar panel System with 3 lithium batteries packs in parallel composed each by 16 batteries in series. For almost 2 years I was able to connect all of them in parallel using 3 daly-bms without parallel module; I don't suggest this! I knew the risks and accepted them (1 or more packs can unbalance and disconnect from others reconnecting when done and risking high dangerous current flow between packs).
