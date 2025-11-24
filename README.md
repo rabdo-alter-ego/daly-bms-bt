@@ -9,6 +9,7 @@ Modify the script executor.py (or parallel_executor.py if you have more than 1 d
 
 # usage
     python3 executor.py
+    or
     python3 parallel_executor.py
 
 # data extracted
