@@ -51,5 +51,8 @@ I was still not able to extract some live data and I really like to have it extr
 
 # Motivation
 I have a solar panel System with 3 lithium batteries packs in parallel composed each by 16 batteries in series. For almost 2 years I was able to connect all of them in parallel using 3 daly-bms without parallel module; I don't suggest this! I knew the risks and accepted them (1 or more packs can unbalance and disconnect from others reconnecting when done and risking high dangerous current flow between packs).
-I was able to monitor the system via bluetooth using https://github.com/dreadnought/python-daly-bms and https://github.com/KevinEeckman/python-daly-bms so I could see if 1 of the pack disconnected.
+
+I was able to monitor the system via bluetooth so I could see if 1 of the pack disconnected and quickly intervene using:
+- https://github.com/dreadnought/python-daly-bms
+- https://github.com/KevinEeckman/python-daly-bms .
 After 2 years i finally decided to use parallel bms just to be extra safe. I bought 3 new bms (my old ones didn t had the DIO port necessary for parallel module) and 3 daly parallel systems! After the assebly I found out my old script was unusable on new devices (i just keep getting this error: "cannot read characteristic 17"), so I rolled up my sleeves and reversed engeneer this script inspecting android hci snoop logs (with wireshark) and destructuring their apk with jadx
