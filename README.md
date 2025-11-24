@@ -2,7 +2,11 @@
 This repo demostrates how to connect and parse most of the live data coming from a daly-bms device using bleak library.
 
 # installation
-    pip3 install bleak
+    `pip3 install bleak`
+
+# usage
+Modify the script executor.py (or parallel_executor.py if you have more than 1 device) and execute it like so:
+    `python3 executor.py`
 
 # data extracted
 I successfully extracted most of the live data I was able to see in the app (who cares about for example SN number if it doesn t change at all?)
