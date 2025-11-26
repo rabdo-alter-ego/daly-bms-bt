@@ -1,5 +1,5 @@
 # daly-bms-bt
-This repo demostrates how to connect and parse most of the live data coming from a daly-bms device using bleak library.
+This repo demostrates how to connect and parse most of the live data coming from a new daly-bms device using bleak library.
 
 # installation
     pip3 install bleak
