@@ -22,6 +22,7 @@ WRITES = [
     "d2030000003ed7b9",
 ]
 
+event_list = []
 
 
 async def handle_device(addr):
@@ -29,6 +30,8 @@ async def handle_device(addr):
         def handle_notification(sender, data):
             print(f"[{addr}] {data.hex()}")
             results = parse_bms_message(data.hex())
+            event = create_splunk_event({**results, "mac": sender})
+            event_list.append(event)
             for result in results:
                 print(f"\n\t✅ **PARSING RESULT ({addr}) sender: {sender}**")
                 print(json.dumps(result, indent=4))
@@ -46,10 +49,14 @@ async def handle_device(addr):
 
 
 async def main():
+    global event_list
+    event_list = []
     # Create one task per device
     tasks = [asyncio.create_task(handle_device(addr)) for addr in DEVICE_ADDRS]
     # Run them all concurrently
     await asyncio.gather(*tasks)
+    print(event_list)
+    post_to_splunk(event_list)
 
 
 if __name__ == "__main__":
