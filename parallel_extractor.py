@@ -44,15 +44,12 @@ async def handle_device(addr):
         await asyncio.sleep(10)
         await client.stop_notify(NOTIFY_CHAR_UUID)
 
-    post_to_splunk(event_list)
-
 
 async def main():
     # Create one task per device
     tasks = [asyncio.create_task(handle_device(addr)) for addr in DEVICE_ADDRS]
     # Run them all concurrently
     await asyncio.gather(*tasks)
-    print(event_list)
 
 
 if __name__ == "__main__":
