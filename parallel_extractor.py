@@ -23,17 +23,14 @@ WRITES = [
 ]
 
 
-async def handle_device(addr):
-    event_list = []
-    async with BleakClient(addr) as client:
 
+async def handle_device(addr):
+    async with BleakClient(addr) as client:
         def handle_notification(sender, data):
             print(f"[{addr}] {data.hex()}")
             results = parse_bms_message(data.hex())
-            event = create_splunk_event({**results, "mac": sender})
-            event_list.append(event)
             for result in results:
-                print(f"\n\t✅ **PARSING RESULT ({addr})**")
+                print(f"\n\t✅ **PARSING RESULT ({addr}) sender: {sender}**")
                 print(json.dumps(result, indent=4))
 
         await client.start_notify(NOTIFY_CHAR_UUID, handle_notification)
@@ -55,6 +52,7 @@ async def main():
     tasks = [asyncio.create_task(handle_device(addr)) for addr in DEVICE_ADDRS]
     # Run them all concurrently
     await asyncio.gather(*tasks)
+    print(event_list)
 
 
 if __name__ == "__main__":
