@@ -48,6 +48,7 @@ I successfully extracted most of the live data I was able to see in the app (who
 I was still not able to extract some live data and I really like to have it extracted in my script:
 - MOS_temperature_C
 - All alarm messages except for SOC Too Low (Stage 1) and SOC Too Low (Stage 2)
+- CRC: there should be a "checksum of a message" for each response sent from the bms
 
 # Motivation
 I have a solar panel System with 3 lithium batteries packs in parallel composed each by 16 batteries in series. For almost 2 years I was able to connect all of them in parallel using 3 daly-bms without parallel module; I don't suggest this! I knew the risks and accepted them (1 or more packs can unbalance and disconnect from others reconnecting when done and risking high dangerous current flow between packs).
